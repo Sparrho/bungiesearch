@@ -27,7 +27,7 @@ def update_index(model_items, model_name, action='index', bulk_size=100, num_doc
     '''
     src = Bungiesearch()
 
-    if action == 'delete' and not isinstance(model_items, (list, tuple)):
+    if action == 'delete' and not isinstance(model_items, (list, tuple, set)):
         raise ValueError("If action is 'delete', model_items must be an iterable of primary keys.")
 
     logging.info('Getting index for model {}.'.format(model_name))
@@ -36,7 +36,7 @@ def update_index(model_items, model_name, action='index', bulk_size=100, num_doc
         model = index_instance.get_model()
 
         if num_docs == -1:
-            if isinstance(model_items, (list, tuple)):
+            if isinstance(model_items, (list, tuple, set)):
                 num_docs = len(model_items)
             else:
                 model_items = filter_model_items(index_instance, model_items, model_name, start_date, end_date)

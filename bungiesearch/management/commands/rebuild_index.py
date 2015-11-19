@@ -10,4 +10,5 @@ class Command(BaseCommand):
 
     def handle(self, **options):
         call_command('clear_index', **options)
+        call_command('search_index', action='update-mapping', **options)
         call_command('search_index', action='update', **options)

@@ -9,7 +9,6 @@ install:
 services:
   - elasticsearch
 script:
-  - export ELASTIC_SEARCH_URL=localhost
   - python tests/manage.py test
   - coverage run --source=tests tests/manage.py test
 after_success:

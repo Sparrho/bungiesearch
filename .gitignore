@@ -5,3 +5,4 @@
 /build/
 /bungiesearch.egg-info/
 /dist/
+.cache/

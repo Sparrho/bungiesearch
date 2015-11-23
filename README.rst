@@ -782,6 +782,9 @@ TIMEOUT
 Testing
 =======
 
+The easiest way to run the tests is to install all dev dependencies using
+``./setup.sh`` then run ``./test.sh``
+
 All Bungiesearch tests are in ``tests/core/test_bungiesearch.py``. You
 can run the tests by creating a Python virtual environment, installing
 the requirements from ``tests/requirements.txt``, installing the package

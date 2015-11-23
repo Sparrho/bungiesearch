@@ -1,5 +1,0 @@
-Django>=1.6
-bungiesearch
-elasticsearch-dsl>=0.0.4
-pytz
-six

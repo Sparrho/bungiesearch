@@ -60,6 +60,12 @@ class CoreTestCase(TestCase):
 
         call_command('rebuild_index', interactive=False, confirmed='guilty-as-charged')
 
+    def test_count_after_clear(self):
+        # can flake because elasticsearch create API is asynchronous
+        self.assertEqual(Article.objects.search_index('bungiesearch_demo').count(), 2)
+        call_command('rebuild_index', interactive=False, confirmed='guilty-as-charged')
+        self.assertEqual(Article.objects.search_index('bungiesearch_demo').count(), 2)
+
     @classmethod
     def tearDownClass(cls):
         call_command('search_index', action='delete', confirmed='guilty-as-charged')

@@ -135,7 +135,7 @@ class Command(BaseCommand):
                 analysis = mdl_idx.collect_analysis()
 
                 logging.info('Creating index {} with {} doctypes.'.format(index, len(mapping)))
-                es.indices.create(index=index, body={'mappings': mapping, 'settings': {'analysis': analysis}})
+                es.indices.create(index=index, body={'mappings': mapping, 'settings': {'analysis': analysis}}, ignore=400)
 
             es.cluster.health(index=','.join(indices), wait_for_status='green', timeout=30)
 
